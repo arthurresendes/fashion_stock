@@ -51,8 +51,7 @@ def criacao_pessoa_comprante():
     cursor.execute('''
                 CREATE TABLE Pessoa(
                     id_pessoa INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nome VARCHAR(100),
-                    CPF VARCHAR(20),
+                    nome_pessoa VARCHAR(100),
                     id_prodfk INTEGER,
                     id_vendafk INTEGER,
                     FOREIGN KEY (id_prodfk) REFERENCES Produto(id_prod),
