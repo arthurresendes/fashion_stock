@@ -35,21 +35,16 @@ A estrutura do banco de dados foi projetada no [draw.io](https://app.diagrams.ne
 
 ![Modelagem de Dados - Draw.io](docs/modelagem-dados.png)
 
-- **Produto:** código, nome, descrição, categoria, tamanho, cor, quantidade, preço
-- **Movimentação:** entrada ou saída, quantidade, data, usuário responsável
-- **Usuário:** controle de acesso e registro de ações
-
-> O arquivo da modelagem pode ser encontrado em `docs/modelagem-dados.drawio`.
+- **Produto:**
+- **Movimentação:** 
+- **Usuário:** 
 
 ## Protótipos
 
 O layout e navegação do Fashion Stock foram desenhados no Figma garantindo uma experiência de usuário consistente:
 
 - ![Tela Inicial](docs/tela-inicial.png)
-- ![Cadastro de Produto](docs/cadastro-produto.png)
-- ![Movimentação de Estoque](docs/movimentacao-estoque.png)
 
-Os arquivos dos protótipos estão disponíveis em `docs/`.
 
 ## Tecnologias Utilizadas
 
@@ -59,50 +54,6 @@ Os arquivos dos protótipos estão disponíveis em `docs/`.
 - **Draw.io**: Modelagem visual de dados.
 - **Figma**: Protótipo de telas e fluxos do usuário.
 
-## Instalação
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/arthurresendes/fashion_stock.git
-   cd fashion_stock
-   ```
-
-2. (Recomendado) Crie um ambiente virtual:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/macOS
-   venv\Scripts\activate     # Windows
-   ```
-
-3. Instale as dependências:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Como Utilizar
-
-Execute a aplicação web com Streamlit:
-
-```bash
-streamlit run app.py
-```
-
-Acesse pelo navegador o endereço sugerido (http://localhost:8501).
-
-O banco SQLite3 será utilizado automaticamente, e os dados ficarão registrados na pasta local.
-
-
-## Contribuições
-
-Sinta-se livre para abrir issues e pull requests com melhorias, reportar bugs, ou sugerir novas funcionalidades!
-
-1. Fork o projeto
-2. Crie sua branch (`git checkout -b minha-melhor-branch`)
-3. Commit suas alterações
-4. Abra um Pull Request
 
 ## Licença
 
