@@ -21,7 +21,6 @@ def login():
 
 def menu_principal():
 
-
     st.sidebar.title("📋 Menu de Navegação")
     pagina = st.sidebar.radio(
         "Escolha uma opção:",
