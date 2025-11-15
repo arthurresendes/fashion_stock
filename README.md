@@ -27,7 +27,6 @@ O Fashion Stock é um sistema web para controle e gerenciamento de estoque de ro
   <img src="https://skillicons.dev/icons?i=sqlite" alt="SQLite3" height="48">
   <img src="https://skillicons.dev/icons?i=figma" alt="Figma" height="48">
   <img src="https://skillicons.dev/icons?i=word" alt="Word" height="48">
-  <img src="https://skillicons.dev/icons?i=drawio" alt="Draw.io" height="48">
 </p>
 
 --
