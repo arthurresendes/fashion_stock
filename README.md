@@ -1,4 +1,4 @@
-# Fashion Stock — Documentação Detalhada
+# Fashion Stock
 
 ## Visão Geral
 
@@ -68,8 +68,6 @@ Scripts para criação de tabelas e inserção de dados estão em `Programa/`.
 
 ## Protótipo Visual — Figma
 
-Para entrevistas e contratos, recomendo apresentar um protótipo no [Figma](https://figma.com/) seguindo estas diretrizes:
-
 - **Tela de Login:**  
   Campos para nome e senha, botão de entrar, feedback visual de erro ou sucesso.
 
@@ -85,17 +83,11 @@ Para entrevistas e contratos, recomendo apresentar um protótipo no [Figma](http
 - **Atualização de Produto:**  
   Seleção do produto, campo para novo preço ou atributo, botão de atualização.
 
-> **Sugestão de protótipo:**  
-> - Crie wireframes básicos no Figma para cada tela listada.
-> - Use cores neutras (branco, cinza, azul) e tipografia legível.
-> - Demonstre fluxo do usuário e navegação.
-> - Disponibilize o link do Figma no repositório para visualização pública.
-
 ---
 
-## Contribuições e Contratos
+## Contribuições
 
-Este projeto foi desenvolvido pensando em grandes contratos empresariais.  
+Este projeto foi desenvolvido pensando em grandes problemas em gestão de estoque.  
 Interessados em integrar, ampliar ou adquirir podem entrar em contato para customização ou negociação.
 
 ---
