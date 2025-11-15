@@ -13,7 +13,9 @@ O Fashion Stock é um sistema web para controle e gerenciamento de estoque de ro
 - **Modelagem/**  
   Modelos de dados em diagramas e exemplos de entidades (Produto, Usuário).
 - **Documentação/**  
-  Arquivos explicativos, RF , RNFs , modelagen.
+  Arquivos explicativos, RF , RNFs , modelagem.
+  - **Design_Interface/**
+  Design feito no figma em formato .png.
 
 ---
 
