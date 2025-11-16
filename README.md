@@ -1,64 +1,109 @@
 # Fashion Stock
 
-Fashion Stock é um sistema para gerenciamento de estoque de moda, desenvolvido em Python com Streamlit para interface web, utilizando SQLite3 como banco de dados. A modelagem de dados foi elaborada com auxílio do draw.io e o protótipo da interface foi desenhado no Figma.
+## Visão Geral
 
-## Índice
-
-- [Visão Geral](#visão-geral)
-- [Funcionalidades](#funcionalidades)
-- [Modelagem de Dados](#modelagem-de-dados)
-- [Protótipos](#protótipos)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação](#instalação)
-- [Como Utilizar](#como-utilizar)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuições](#contribuições)
-- [Licença](#licença)
+O Fashion Stock é um sistema web para controle e gerenciamento de estoque de roupas, focado no varejo de moda. Foi desenvolvido em Python, utilizando o framework Streamlit para a interface, e SQLite para o banco de dados.
 
 ---
 
-## Visão Geral
+## Estrutura do Projeto
 
-Fashion Stock ajuda pequenas lojas ou marcas independentes de moda a organizarem seus estoques, cadastro de produtos, movimentações e relatórios, tudo via uma interface web amigável.
+- **Programa/**  
+  Scripts Python para criação de bancos, inserção de dados, login e interface principal (`main_st.py`).
+- **Modelagem/**  
+  Modelos de dados em diagramas e exemplos de entidades (Produto, Usuário).
+- **Documentação/**  
+  Arquivos explicativos, RF , RNFs , modelagem.
+- **Design_Interface/**  
+  Arquivos em .png do prototipo feito no FIGMA.
+
+---
+
+## Ferramentas Utilizadas
+
+<p>
+  <img src="https://skillicons.dev/icons?i=py" alt="Python" height="48">
+  <img src="https://skillicons.dev/icons?i=vscode" alt="VSCode" height="48">
+  <img src="https://skillicons.dev/icons?i=sqlite" alt="SQLite3" height="48">
+  <img src="https://skillicons.dev/icons?i=figma" alt="Figma" height="48">
+</p>
+
+---
 
 ## Funcionalidades
 
-- Cadastro e edição de produtos (roupas, acessórios, etc.)
-- Controle de entradas e saídas do estoque
-- Visualização e geração de relatórios
-- Busca e filtragem avançada
-- Interface intuitiva baseada em protótipos do Figma
+1. **Autenticação de Usuário**
+   - Cadastro e login com senha criptografada (token aleatório).
+   - Armazenamento seguro no SQLite.
 
-## Modelagem de Dados
+2. **Cadastro de Produtos**
+   - Formulário para inserir dados detalhados.
+   - Tipos, marcas, tamanhos, cores, gênero, preço, quantidade, promoção e descrição.
 
-A estrutura do banco de dados foi projetada no [draw.io](https://app.diagrams.net/), facilitando o entendimento das entidades e das relações:
+3. **Atualização de Produtos**
+   - Interface para atualizar preço ou outras informações.
 
-![Modelagem de Dados - Draw.io](docs/modelagem-dados.png)
+4. **Consulta de Produtos**
+   - Busca por nome, tipo ou outros atributos.
+   - Resultados apresentados na tela.
 
-- **Produto:**
-- **Movimentação:** 
-- **Usuário:** 
-
-## Protótipos
-
-O layout e navegação do Fashion Stock foram desenhados no Figma garantindo uma experiência de usuário consistente:
-
-- ![Tela Inicial](docs/tela-inicial.png)
-
-
-## Tecnologias Utilizadas
-
-- **Python**: Lógica do backend e integração com o banco de dados.
-- **Streamlit**: Framework para produção da interface web interativa.
-- **SQLite3**: Banco de dados leve e eficiente.
-- **Draw.io**: Modelagem visual de dados.
-- **Figma**: Protótipo de telas e fluxos do usuário.
-
-
-## Licença
-
-Este projeto está sob a licença MIT.
+5. **Navegação Amigável**
+   - Menu lateral com opções para cada funcionalidade.
 
 ---
 
-**Autor:** [Arthur Resendes](https://github.com/arthurresendes)
+## Fluxo do Usuário
+
+1. Usuário acessa o sistema.
+2. Realiza login.
+3. Escolhe a ação desejada via menu lateral.
+4. Preenche ou consulta formulários.
+5. Encerra sessão de forma segura.
+
+---
+
+## Banco de Dados
+
+- **Usuário:** id_user, nome, senha
+- **Produto:** id_prod, tipo, marca, tamanho, cor, gênero, preço_unitario, quantidade, promocao, descricao
+
+Scripts para criação de tabelas e inserção de dados estão em `Programa/`.
+
+---
+
+## Instruções de Uso
+
+1. Instalar dependências com `pip install streamlit`.
+2. Executar scripts para criar bancos e usuários.
+3. Rodar o sistema principal com `streamlit run Programa/main_st.py`.
+
+---
+
+## Protótipo Visual — Figma
+
+- **Tela de Login:**  
+  Campos para nome e senha, botão de entrar, feedback visual de erro ou sucesso.
+
+- **Menu Lateral:**  
+  Ícones para Cadastro, Atualizar, Consultar e Sair. Aparência moderna e responsiva.
+
+- **Cadastro de Produto:**  
+  Formulários com campos suspensos e validações. Layout limpo, botões de confirmação.
+
+- **Consulta de Produtos:**  
+  Barra de busca, caixa de resultado em lista ou tabela.
+
+- **Atualização de Produto:**  
+  Seleção do produto, campo para novo preço ou atributo, botão de atualização.
+
+---
+
+## Contribuições
+
+Este projeto foi desenvolvido pensando em grandes problemas em gestão de estoque.  
+Interessados em integrar, ampliar ou adquirir podem entrar em contato para customização ou negociação.
+
+---
+
+**Equipe Fashion Stock**  
+[Seu contato ou LinkedIn]
