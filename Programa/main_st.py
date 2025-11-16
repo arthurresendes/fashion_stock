@@ -37,10 +37,14 @@ def menu_principal():
         st.header("Cadastro de Produtos")
         st.write("Aqui você pode cadastrar novas roupas no estoque.")
         nome = st.text_input("Nome da peça:")
-        tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta", "Outro"])
+        tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
+        marca = st.text_input("Marca:")
         cor = st.text_input("Cor:")
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
+        genero = st.selectbox("Gênero", ["M","F","AMBOS"])
         preco = st.number_input("Preço (R$):", min_value=0.0, step=0.1)
+        quantidade = st.number_input("Quantidade:")
+        descricao = st.text_area("Descrição:")
         if st.button("Cadastrar"):
             st.success(f"Produto '{nome}' cadastrado com sucesso!")
 
