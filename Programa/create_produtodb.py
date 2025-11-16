@@ -16,7 +16,6 @@ def criacao_produto():
                     genero VARCHAR(20),
                     preco_unitario FLOAT,
                     quantidade INTEGER,
-                    promocao BOOL,
                     descricao VARCHAR(100)
                 )
     ''')

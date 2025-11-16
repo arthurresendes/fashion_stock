@@ -4,7 +4,7 @@ def cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     conexao = sqlite3.connect('fashion.db')
     
     cursor = conexao.cursor()
-    produto = (tipo, marca, tamanho, cor, genero, preco, quantidade, 0, descricao)
+    produto = (tipo, marca, tamanho, cor, genero, preco, quantidade, descricao)
 
     cursor.execute("""
         INSERT INTO Produto (
@@ -15,10 +15,9 @@ def cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
             genero, 
             preco_unitario, 
             quantidade, 
-            promocao, 
             descricao
         ) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     """, produto)
     
     conexao.commit()
@@ -38,7 +37,7 @@ def selecao_marca():
     
     conexao.commit()
     conexao.close()
-    return list(res)
+    return [linha[0] for linha in res]
 
 def selecao_cor():
     conexao = sqlite3.connect('fashion.db')
@@ -53,14 +52,14 @@ def selecao_cor():
     
     conexao.commit()
     conexao.close()
-    return list(res)
+    return [linha[0] for linha in res]
 
 
 def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     conexao = sqlite3.connect('fashion.db')
     
     cursor = conexao.cursor()
-    produto = (tipo, marca, tamanho, cor, genero, preco, quantidade, 0, descricao)
+    produto = (tipo, marca, tamanho, cor, genero, preco, quantidade, descricao)
 
     cursor.execute("""
         
@@ -68,7 +67,6 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     
     conexao.commit()
     conexao.close()
-
 
 
 

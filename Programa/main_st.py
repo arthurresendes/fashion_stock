@@ -25,7 +25,7 @@ def menu_principal():
     st.sidebar.title("📋 Menu de Navegação")
     pagina = st.sidebar.radio(
         "Escolha uma opção:",
-        ["Menu","📦 Cadastro", "✏️ Atualizar", "🔍 Selecionar"]
+        ["Menu","Cadastro", "Atualizar", "Selecionar"]
     )
     st.session_state["pagina"] = pagina
 
@@ -37,7 +37,7 @@ def menu_principal():
             st.session_state["logado"] = False
             st.rerun()
 
-    elif pagina == "📦 Cadastro":
+    elif pagina == "Cadastro":
         st.header("Cadastro de Produtos")
         st.write("Aqui você pode cadastrar novas roupas no estoque.")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
@@ -59,7 +59,7 @@ def menu_principal():
             except:
                 st.warning("Erro ao cadastrar, preencha todos os campos corretamente")
 
-    elif pagina == "✏️ Atualizar":
+    elif pagina == "Atualizar":
         selectbox_marca = selecao_marca()
         selectbox_cor = selecao_cor()
         
@@ -73,17 +73,17 @@ def menu_principal():
         quantidade_input = st.text_input("Quantidade:")
         descricao = st.text_area("Descrição:")
         
-        if st.button("Cadastrar"):
+        if st.button("Atualizar"):
             try:
                 preco_input = preco_input.replace(",", ".")
                 preco = float(preco_input)
                 quantidade = int(quantidade_input)
                 cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
-                st.success("Produto cadastrado com sucesso")
+                st.success("Produto atualizado com sucesso")
             except:
-                st.warning("Erro ao cadastrar, preencha todos os campos corretamente")
+                st.warning("Erro ao atualizar, preencha todos os campos corretamente")
 
-    elif pagina == "🔍 Selecionar":
+    elif pagina == "Selecionar":
         st.header("Consultar Produtos")
         st.write("Aqui você pode visualizar informações de produtos cadastrados.")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
@@ -95,7 +95,7 @@ def menu_principal():
         quantidade_input = st.text_input("Quantidade:")
         descricao = st.text_area("Descrição:")
         
-        if st.button("Cadastrar"):
+        if st.button("Selecionar"):
             try:
                 preco_input = preco_input.replace(",", ".")
                 preco = float(preco_input)
@@ -103,7 +103,7 @@ def menu_principal():
                 cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
                 st.success("Produto cadastrado com sucesso")
             except:
-                st.warning("Erro ao cadastrar, preencha todos os campos corretamente")
+                st.warning("Erro ao selecionar, preencha todos os campos corretamente")
 
 
 if "logado" not in st.session_state:
