@@ -42,11 +42,15 @@ def menu_principal():
         cor = st.text_input("Cor:")
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
         genero = st.selectbox("Gênero", ["M","F","AMBOS"])
-        preco = st.number_input("Preço (R$):", min_value=0.0, step=0.1)
-        quantidade = st.number_input("Quantidade:")
+        preco_input = st.text_input("Preço (R$):")
+        quantidade_input = st.text_input("Quantidade:")
         descricao = st.text_area("Descrição:")
+        
         if st.button("Cadastrar"):
             try:
+                preco_input = preco_input.replace(",", ".")
+                preco = float(preco_input)
+                quantidade = int(quantidade_input)
                 cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
                 st.success("Produto cadastrado com sucesso")
             except:
