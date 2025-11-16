@@ -1,5 +1,6 @@
 import streamlit as st
 from selecionando_users_login import lista_usuarios
+from querys import cadastrar_prod
 
 def login():
     st.title("Tela de Login Fashion-Stock")
@@ -36,7 +37,6 @@ def menu_principal():
     elif pagina == "📦 Cadastro":
         st.header("Cadastro de Produtos")
         st.write("Aqui você pode cadastrar novas roupas no estoque.")
-        nome = st.text_input("Nome da peça:")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
         marca = st.text_input("Marca:")
         cor = st.text_input("Cor:")
@@ -46,7 +46,11 @@ def menu_principal():
         quantidade = st.number_input("Quantidade:")
         descricao = st.text_area("Descrição:")
         if st.button("Cadastrar"):
-            st.success(f"Produto '{nome}' cadastrado com sucesso!")
+            try:
+                cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
+                st.success("Produto cadastrado com sucesso")
+            except:
+                st.warning("Erro ao cadastrar, preencha todos os campos corretamente")
 
     elif pagina == "✏️ Atualizar":
         st.header("Atualizar Produto")
