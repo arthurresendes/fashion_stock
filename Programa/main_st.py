@@ -22,7 +22,7 @@ def login():
 
 def menu_principal():
 
-    st.sidebar.title("📋 Menu de Navegação")
+    st.sidebar.title("Menu de Navegação")
     pagina = st.sidebar.radio(
         "Escolha uma opção:",
         ["Menu","Cadastro", "Atualizar", "Selecionar"]
@@ -44,7 +44,7 @@ def menu_principal():
         marca = st.text_input("Marca:")
         cor = st.text_input("Cor:")
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
-        genero = st.selectbox("Gênero", ["M","F","AMBOS"])
+        genero = st.selectbox("Gênero", ["M","F","Unissex"])
         preco_input = st.text_input("Preço (R$):")
         quantidade_input = st.text_input("Quantidade:")
         descricao = st.text_area("Descrição:")
