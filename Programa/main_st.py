@@ -104,12 +104,14 @@ def menu_principal():
                 output = BytesIO()
                 df.to_excel(output, index=False, sheet_name="Resultados")
                 output.seek(0)
+                
                 st.download_button(
                     label="Download seleção em Arquivo EXCEL(xlsx)",
                     data=output,
                     file_name="resultado_selecao.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
+                
                 st.success("Selecão feita com sucesso")
                 
             except:
