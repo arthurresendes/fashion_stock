@@ -70,20 +70,16 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
 
 
 
-def selecao(tipo,marca,cor,tamanho,genero):
+def selecao(tipo, marca, cor, tamanho, genero):
     conexao = sqlite3.connect('fashion.db')
-    
-    cursor = conexao.cursor()
 
     query = """
-        SELECT * FROM Produto where tipo = ? AND marca = ? AND cor = ? AND tamanho = ? AND genero = ?
+        SELECT * FROM Produto 
+        WHERE tipo = ? AND marca = ? AND cor = ? AND tamanho = ? AND genero = ?
     """
-    
-    
+
     df = pd.read_sql_query(query, conexao, params=(tipo, marca, cor, tamanho, genero))
 
     conexao.close()
-
-    df.to_excel("resultado_selecao.xlsx", index=False)
 
     return df

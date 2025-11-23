@@ -1,4 +1,5 @@
 import streamlit as st
+from io import BytesIO
 from selecionando_users_login import lista_usuarios
 from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
 
@@ -99,11 +100,16 @@ def menu_principal():
         if st.button("Selecionar"):
             try:
                 df = selecao(tipo,marca,cor,tamanho,genero)
+                
+                output = BytesIO()
+                df.to_excel(output, index=False, sheet_name="Resultados")
+                output.seek(0)
                 st.download_button(
                     label="Download",
-                    data=df.to_excel(index=False),
-                    file_name="resultado_selecao.xlsx"
-                    )
+                    data=output,
+                    file_name="resultado_selecao.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                )
                 st.success("Selecão feita com sucesso")
                 
             except:
