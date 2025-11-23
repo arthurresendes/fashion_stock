@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 
 def cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     conexao = sqlite3.connect('fashion.db')
@@ -69,4 +70,18 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
 
 
 
-def selecao()
+def selecao(tipo,marca,cor,tamanho,genero):
+    conexao = sqlite3.connect('fashion.db')
+    
+    cursor = conexao.cursor()
+
+    cursor.execute("""
+        SELECT * FROM Produto where tipo = ? AND marca = ? AND cor = ? AND tamanho = ? AND genero = ?
+    """,(tipo,marca,cor,tamanho,genero))
+    
+    
+    res = cursor.fetchall()
+    df = pd.read_sql_query(res,conexao)
+    df.to_excel("resultados_pesquisa", index=False, sheet_name='Resultados')
+    conexao.close()
+    return df

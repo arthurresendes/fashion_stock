@@ -1,6 +1,6 @@
 import streamlit as st
 from selecionando_users_login import lista_usuarios
-from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod
+from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
 
 def login():
     st.title("Tela de Login Fashion-Stock")
@@ -101,8 +101,14 @@ def menu_principal():
                 preco_input = preco_input.replace(",", ".")
                 preco = float(preco_input)
                 quantidade = int(quantidade_input)
-                cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
-                st.success("Produto selecionado com sucesso")
+                df = selecao(tipo,marca,cor,tamanho,genero)
+                st.download_button(
+                    label="Download seleção em Excel",
+                    data=df,
+                    file_name="resultado_selecao.xlsx",
+                    )
+                st.success("Selecão feita com sucesso")
+                
             except:
                 st.warning("Erro ao selecionar, preencha todos os campos corretamente")
 
