@@ -101,7 +101,7 @@ def menu_principal():
                 preco = float(preco_input)
                 quantidade = int(quantidade_input)
                 cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
-                st.success("Produto cadastrado com sucesso")
+                st.success("Produto selecionado com sucesso")
             except:
                 st.warning("Erro ao selecionar, preencha todos os campos corretamente")
 
