@@ -85,15 +85,16 @@ def menu_principal():
 
     elif pagina == "Selecionar":
         st.header("Consultar Produtos")
+        selectbox_marca = selecao_marca()
+        selectbox_cor = selecao_cor()
+        
+        
         st.write("Aqui você pode visualizar informações de produtos cadastrados.")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
-        marca = st.text_input("Marca:")
-        cor = st.text_input("Cor:")
+        marca = st.selectbox("Marca", selectbox_marca)
+        cor = st.selectbox("Cor",selectbox_cor)
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
         genero = st.selectbox("Gênero", ["M","F","AMBOS"])
-        preco_input = st.text_input("Preço (R$):")
-        quantidade_input = st.text_input("Quantidade:")
-        descricao = st.text_area("Descrição:")
         
         if st.button("Selecionar"):
             try:

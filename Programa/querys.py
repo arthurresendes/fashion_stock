@@ -69,3 +69,4 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
 
 
 
+def selecao()
