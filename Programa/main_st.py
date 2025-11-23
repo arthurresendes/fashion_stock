@@ -1,6 +1,6 @@
 import streamlit as st
 from selecionando_users_login import lista_usuarios
-from querys import cadastrar_prod, selecao_marca,selecao_cor
+from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod
 
 def login():
     st.title("Tela de Login Fashion-Stock")
@@ -78,7 +78,7 @@ def menu_principal():
                 preco_input = preco_input.replace(",", ".")
                 preco = float(preco_input)
                 quantidade = int(quantidade_input)
-                cadastrar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
+                atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao)
                 st.success("Produto atualizado com sucesso")
             except:
                 st.warning("Erro ao atualizar, preencha todos os campos corretamente")
