@@ -59,11 +59,12 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     conexao = sqlite3.connect('fashion.db')
     
     cursor = conexao.cursor()
-    produto = (tipo, marca, tamanho, cor, genero, preco, quantidade, descricao)
 
     cursor.execute("""
-        
-    """, produto)
+        UPDATE Produto
+        SET genero = ?, preco_unitario = ?, quantidade = ? , descricao = ?
+        where tipo = ? AND marca = ? AND cor = ? AND tamanho = ?
+    """,genero,preco,quantidade,descricao,tipo,marca,cor, tamanho)
     
     conexao.commit()
     conexao.close()
