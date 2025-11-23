@@ -75,13 +75,15 @@ def selecao(tipo,marca,cor,tamanho,genero):
     
     cursor = conexao.cursor()
 
-    cursor.execute("""
+    query = """
         SELECT * FROM Produto where tipo = ? AND marca = ? AND cor = ? AND tamanho = ? AND genero = ?
-    """,(tipo,marca,cor,tamanho,genero))
+    """
     
     
-    res = cursor.fetchall()
-    df = pd.read_sql_query(res,conexao)
-    df.to_excel("resultados_pesquisa", index=False, sheet_name='Resultados')
+    df = pd.read_sql_query(query, conexao, params=(tipo, marca, cor, tamanho, genero))
+
     conexao.close()
+
+    df.to_excel("resultado_selecao.xlsx", index=False)
+
     return df

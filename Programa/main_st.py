@@ -98,14 +98,11 @@ def menu_principal():
         
         if st.button("Selecionar"):
             try:
-                preco_input = preco_input.replace(",", ".")
-                preco = float(preco_input)
-                quantidade = int(quantidade_input)
                 df = selecao(tipo,marca,cor,tamanho,genero)
                 st.download_button(
-                    label="Download seleção em Excel",
-                    data=df,
-                    file_name="resultado_selecao.xlsx",
+                    label="Download",
+                    data=df.to_excel(index=False),
+                    file_name="resultado_selecao.xlsx"
                     )
                 st.success("Selecão feita com sucesso")
                 
