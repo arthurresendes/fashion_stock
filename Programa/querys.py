@@ -35,7 +35,6 @@ def selecao_marca():
     
     res = cursor.fetchall()
     
-    conexao.commit()
     conexao.close()
     return [linha[0] for linha in res]
 
@@ -50,7 +49,6 @@ def selecao_cor():
     
     res = cursor.fetchall()
     
-    conexao.commit()
     conexao.close()
     return [linha[0] for linha in res]
 
@@ -64,7 +62,7 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
         UPDATE Produto
         SET genero = ?, preco_unitario = ?, quantidade = ? , descricao = ?
         where tipo = ? AND marca = ? AND cor = ? AND tamanho = ?
-    """,genero,preco,quantidade,descricao,tipo,marca,cor, tamanho)
+    """,(genero,preco,quantidade,descricao,tipo,marca,cor, tamanho))
     
     conexao.commit()
     conexao.close()
