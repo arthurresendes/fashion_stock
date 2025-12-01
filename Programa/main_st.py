@@ -1,8 +1,8 @@
 import streamlit as st
 from io import BytesIO
 from selecionando_users_login import lista_usuarios
-from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao,consulta_dahs
-import matplotlib as plt
+from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
+
 def login():
     st.title("Tela de Login Fashion-Stock")
 
@@ -111,24 +111,6 @@ def menu_principal():
                     file_name="resultado_selecao.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
-                
-                res = consulta_dahs(tipo,marca,cor,tamanho,genero)
-                
-                x_data = [1]
-                y_data = [res]
-                grafico = plt.figure(figsize=(8, 5))
-                plt.plot(x_data, y_data, marker='o', linestyle='--', color='blue', label=f'Total {tipo} - {marca}')
-                plt.xlabel(f"Query Result (Total Count for {tipo})")
-                plt.ylabel("Number of Items")
-                plt.title(f"Inventory Count for {tipo} ({marca}, {cor}, {tamanho}, {genero})")
-                plt.legend()
-                plt.grid(True)
-                
-                
-                ver_grafico = st.button("Ver grafico total de itens !!")
-                if ver_grafico:
-                    st.pyplot(grafico)
-                    st.success(f"Gráfico exibido para o item: {tipo} {marca}")
                 
                 st.success("Selecão feita com sucesso")
                 
