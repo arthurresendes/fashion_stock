@@ -83,3 +83,17 @@ def selecao(tipo, marca, cor, tamanho, genero):
     conexao.close()
 
     return df
+
+def consulta_dahs(tipo, marca, cor, tamanho, genero):
+    conexao = sqlite3.connect('fashion.db')
+    
+    cursor = conexao.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(*) FROM produto where tipo = ? and marca = ? and cor = ? and tamanho = ? and genero = ?
+    """,(tipo, marca, cor, tamanho, genero))
+    
+    res = cursor.fetchall()
+    
+    conexao.close()
+    return res
