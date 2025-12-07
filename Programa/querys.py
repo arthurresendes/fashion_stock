@@ -112,5 +112,3 @@ def menor_preco():
     
     conexao.close()
     return res[0]
-
-print(menor_preco())

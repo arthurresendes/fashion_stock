@@ -84,7 +84,7 @@ def menu_principal():
         marca = st.selectbox("Marca", selectbox_marca)
         cor = st.selectbox("Cor",selectbox_cor)
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
-        genero = st.selectbox("Gênero", ["M","F","AMBOS"])
+        genero = st.selectbox("Gênero", ["M","F","Unissex"])
         preco_input = st.text_input("Preço (R$):")
         quantidade_input = st.text_input("Quantidade:")
         descricao = st.text_area("Descrição:")
