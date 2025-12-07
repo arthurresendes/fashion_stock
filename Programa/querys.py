@@ -91,7 +91,7 @@ def dash_maior_qtd():
     cursor = conexao.cursor()
 
     cursor.execute("""
-        SELECT tipo, quantidade FROM produto where quantidade > 19
+        SELECT tipo, quantidade FROM produto ORDER BY quantidade DESC LIMIT 5
     """)
     
     res = cursor.fetchall()
