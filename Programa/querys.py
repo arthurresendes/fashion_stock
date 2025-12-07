@@ -53,7 +53,6 @@ def selecao_cor():
     conexao.close()
     return [linha[0] for linha in res]
 
-
 def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     conexao = sqlite3.connect('fashion.db')
     
@@ -67,8 +66,6 @@ def atualizar_prod(tipo,marca,cor,tamanho,genero,preco,quantidade,descricao):
     
     conexao.commit()
     conexao.close()
-
-
 
 def selecao(tipo, marca, cor, tamanho, genero):
     conexao = sqlite3.connect('fashion.db')
