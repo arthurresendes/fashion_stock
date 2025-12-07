@@ -85,13 +85,13 @@ def selecao(tipo, marca, cor, tamanho, genero):
     return df
 
 
-def dash_maior_qtd():
+def contagem_tipos():
     conexao = sqlite3.connect('fashion.db')
     
     cursor = conexao.cursor()
 
     cursor.execute("""
-        SELECT tipo, quantidade FROM produto ORDER BY quantidade DESC LIMIT 5
+        SELECT tipo,COUNT(tipo) FROM produto GROUP BY tipo
     """)
     
     res = cursor.fetchall()
@@ -99,3 +99,4 @@ def dash_maior_qtd():
     conexao.close()
     return res
 
+print(contagem_tipos())
