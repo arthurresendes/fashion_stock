@@ -85,16 +85,17 @@ def selecao(tipo, marca, cor, tamanho, genero):
     return df
 
 
-def dash_menor_preco():
+def dash_maior_qtd():
     conexao = sqlite3.connect('fashion.db')
     
     cursor = conexao.cursor()
 
     cursor.execute("""
-        SELECT tipo, max(quantidade) FROM produto
+        SELECT tipo, quantidade FROM produto where quantidade > 19
     """)
     
     res = cursor.fetchall()
     
     conexao.close()
-    return res[0]
+    return res
+

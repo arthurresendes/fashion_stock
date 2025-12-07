@@ -2,6 +2,7 @@ import streamlit as st
 from io import BytesIO
 from selecionando_users_login import lista_usuarios
 from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
+from dashs import grafico_maiores_qtd
 
 def login():
     st.title("Tela de Login Fashion-Stock")
@@ -34,6 +35,13 @@ def menu_principal():
         st.header("Menu Fashion-Stock")
         st.subheader("Informações sobre o site")
         st.write("  O fashion stock foi criado com um proposito, muitos sistemas de estoque no varejo de roupas não tem um controle necessário e eficiente das roupas que são armazenadas nas suas lojas, sendo assim podendo gerar menos lucros e mais dor de cabeça, visto isso o fashion stock traz uma solução onde por meio de um sistema web com formulários todas as informações de roupas irão vir de um banco de dados.")
+        st.subheader("Consulte dashboards do seu banco !!")
+        
+        maior_quantidade = st.button("Maior quantidade em estoque")
+        figura = grafico_maiores_qtd()
+        if maior_quantidade:
+            st.pyplot(figura)
+            
         if st.button("Sair"):
             st.session_state["logado"] = False
             st.rerun()
