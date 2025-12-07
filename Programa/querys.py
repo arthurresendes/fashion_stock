@@ -31,7 +31,7 @@ def selecao_marca():
     cursor = conexao.cursor()
 
     cursor.execute("""
-        SELECT marca FROM produto
+        SELECT marca FROM produto group by marca
     """)
     
     res = cursor.fetchall()
@@ -45,7 +45,7 @@ def selecao_cor():
     cursor = conexao.cursor()
 
     cursor.execute("""
-        SELECT cor FROM produto
+        SELECT cor FROM produto group by cor
     """)
     
     res = cursor.fetchall()
