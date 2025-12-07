@@ -99,4 +99,18 @@ def contagem_tipos():
     conexao.close()
     return res
 
-print(contagem_tipos())
+def menor_preco():
+    conexao = sqlite3.connect('fashion.db')
+    
+    cursor = conexao.cursor()
+
+    cursor.execute("""
+        SELECT tipo,marca,cor, MIN(preco_unitario) FROM produto
+    """)
+    
+    res = cursor.fetchall()
+    
+    conexao.close()
+    return res[0]
+
+print(menor_preco())

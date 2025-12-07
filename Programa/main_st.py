@@ -2,7 +2,7 @@ import streamlit as st
 from io import BytesIO
 from selecionando_users_login import lista_usuarios
 from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
-from dashs import grafico_tipos_qtd
+from dashs import grafico_tipos_qtd, grafico_menor_preco
 
 def login():
     st.title("Tela de Login Fashion-Stock")
@@ -41,6 +41,11 @@ def menu_principal():
         figura = grafico_tipos_qtd()
         if maior_quantidade_tipo:
             st.pyplot(figura)
+        
+        menor_preco = st.button("Produto com menor preço")
+        figura2 = grafico_menor_preco()
+        if menor_preco:
+            st.pyplot(figura2)
         
         
         
