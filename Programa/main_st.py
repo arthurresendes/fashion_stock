@@ -35,7 +35,7 @@ def menu_principal():
         st.header("Menu Fashion-Stock")
         st.subheader("Informações sobre o site")
         st.write("  O fashion stock foi criado com um proposito, muitos sistemas de estoque no varejo de roupas não tem um controle necessário e eficiente das roupas que são armazenadas nas suas lojas, sendo assim podendo gerar menos lucros e mais dor de cabeça, visto isso o fashion stock traz uma solução onde por meio de um sistema web com formulários todas as informações de roupas irão vir de um banco de dados.")
-        st.subheader("Consulte dashboards do seu banco !!")
+        st.subheader("Consulte dashboards do seu estoque !!")
         
         maior_quantidade_tipo = st.button("Maior quantidade por tipo em estoque")
         figura = grafico_tipos_qtd()
@@ -80,6 +80,7 @@ def menu_principal():
         selectbox_cor = selecao_cor()
         
         st.header("Atualizar Produto")
+        st.write("Aqui você pode atualizar roupas já existentes no estoque.")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
         marca = st.selectbox("Marca", selectbox_marca)
         cor = st.selectbox("Cor",selectbox_cor)
