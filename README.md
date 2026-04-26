@@ -106,4 +106,4 @@ Interessados em integrar, ampliar ou adquirir podem entrar em contato para custo
 ---
 
 **Equipe Fashion Stock**  
-
+<a href="https://www.linkedin.com/in/arthur-resende-gomes"><img src="https://skillicons.dev/icons?i=linkedin" alt="Linkedin" height="48"></a>
