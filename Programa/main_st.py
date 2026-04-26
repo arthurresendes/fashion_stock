@@ -1,6 +1,6 @@
 import streamlit as st
 from io import BytesIO
-from selecionando_users_login import lista_usuarios
+from selecionando_users_login import validar_login
 from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
 from dashs import grafico_tipos_qtd, grafico_menor_preco
 
@@ -12,26 +12,16 @@ def login():
     submit = st.button("Entrar")
 
     if submit:
-        informacoes = (nome, senha)
-        lista_users_permitidos = lista_usuarios()
+        validar_user = validar_login(nome,senha)
 
-        if informacoes in lista_users_permitidos:
+        if validar_user:
             st.session_state["logado"] = True
             st.session_state["pagina"] = "Menu"
             st.rerun()
         else:
             st.warning("Login não permitido")
 
-def menu_principal():
-
-    st.sidebar.title("Menu de Navegação")
-    pagina = st.sidebar.radio(
-        "Escolha uma opção:",
-        ["Menu","Cadastro", "Atualizar", "Selecionar"]
-    )
-    st.session_state["pagina"] = pagina
-
-    if pagina == "Menu":
+def menu_fashion():
         st.header("Menu Fashion-Stock")
         st.subheader("Informações sobre o site")
         st.write("  O fashion stock foi criado com um proposito, muitos sistemas de estoque no varejo de roupas não tem um controle necessário e eficiente das roupas que são armazenadas nas suas lojas, sendo assim podendo gerar menos lucros e mais dor de cabeça, visto isso o fashion stock traz uma solução onde por meio de um sistema web com formulários todas as informações de roupas irão vir de um banco de dados.")
@@ -46,14 +36,8 @@ def menu_principal():
         figura2 = grafico_menor_preco()
         if menor_preco:
             st.pyplot(figura2)
-        
-        
-        
-        if st.button("Sair"):
-            st.session_state["logado"] = False
-            st.rerun()
 
-    elif pagina == "Cadastro":
+def cadastrar():
         st.header("Cadastro de Produtos")
         st.write("Aqui você pode cadastrar novas roupas no estoque.")
         tipo = st.selectbox("Tipo", ["Camisa", "Calça", "Vestido", "Jaqueta"])
@@ -75,7 +59,7 @@ def menu_principal():
             except:
                 st.warning("Erro ao cadastrar, preencha todos os campos corretamente")
 
-    elif pagina == "Atualizar":
+def atualizar():
         selectbox_marca = selecao_marca()
         selectbox_cor = selecao_cor()
         
@@ -100,7 +84,7 @@ def menu_principal():
             except:
                 st.warning("Erro ao atualizar, preencha todos os campos corretamente")
 
-    elif pagina == "Selecionar":
+def selecionar():
         st.header("Consultar Produtos")
         selectbox_marca = selecao_marca()
         selectbox_cor = selecao_cor()
@@ -111,7 +95,7 @@ def menu_principal():
         marca = st.selectbox("Marca", selectbox_marca)
         cor = st.selectbox("Cor",selectbox_cor)
         tamanho = st.selectbox("Tamanho", ["P", "M", "G", "GG"])
-        genero = st.selectbox("Gênero", ["M","F","AMBOS"])
+        genero = st.selectbox("Gênero", ["M","F","Unissex"])
         
         if st.button("Selecionar"):
             try:
@@ -132,6 +116,28 @@ def menu_principal():
                 
             except:
                 st.warning("Erro ao selecionar, preencha todos os campos corretamente")
+
+def menu_principal():
+    st.sidebar.title("Menu de Navegação")
+    pagina = st.sidebar.radio(
+        "Escolha uma opção:",
+        ["Menu","Cadastro", "Atualizar", "Selecionar", "Sair"]
+    )
+    st.session_state["pagina"] = pagina
+    
+    if pagina == "Menu":
+        menu_fashion()
+    elif pagina == "Cadastro":
+        cadastrar()
+    elif pagina == "Atualizar":
+        atualizar()
+    elif pagina == "Selecionar":
+        selecionar()
+    elif pagina == "Sair":
+        st.session_state["logado"] = False
+        st.rerun()
+    else:
+        return "Erro"
 
 
 if "logado" not in st.session_state:

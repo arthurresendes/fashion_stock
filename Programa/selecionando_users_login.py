@@ -1,21 +1,21 @@
 import sqlite3
+import hashlib
 
-def lista_usuarios():
-    conexao  = sqlite3.connect("LoginUser.db")
+def validar_login(nome, senha_digitada):
+    conexao = sqlite3.connect("LoginUser.db")
     cursor = conexao.cursor()
-    
-    cursor.execute("SELECT nome,senha FROM Usuario")
-    
-    res = cursor.fetchall()
-    lista_users = []
-    for result in res:
-        lista_users.append(result)
-    
-    conexao.commit()
+
+    hash_senha = hashlib.md5(senha_digitada.encode()).hexdigest()
+    cursor.execute("""
+        SELECT * FROM Usuario
+        WHERE nome = ? AND senha = ?
+    """, (nome, hash_senha))
+
+    usuario = cursor.fetchone()
+
     conexao.close()
 
-    return lista_users
-
-
-if __name__ == "__main__":
-    lista_usuarios()
+    if usuario:
+        return True
+    else:
+        return False

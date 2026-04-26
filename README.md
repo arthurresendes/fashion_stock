@@ -106,4 +106,4 @@ Interessados em integrar, ampliar ou adquirir podem entrar em contato para custo
 ---
 
 **Equipe Fashion Stock**  
-[Seu contato ou LinkedIn]
+
