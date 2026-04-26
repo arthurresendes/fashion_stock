@@ -1,7 +1,6 @@
 import streamlit as st
 from io import BytesIO
-from selecionando_users_login import validar_login
-from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao
+from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao,validar_login
 from dashs import grafico_tipos_qtd, grafico_menor_preco
 
 def login():

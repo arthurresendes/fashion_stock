@@ -33,7 +33,7 @@ O Fashion Stock é um sistema web para controle e gerenciamento de estoque de ro
 ## Funcionalidades
 
 1. **Autenticação de Usuário**
-   - Cadastro e login com senha criptografada (token aleatório).
+   - Cadastro e login com senha criptografada.
    - Armazenamento seguro no SQLite.
 
 2. **Cadastro de Produtos**
@@ -76,6 +76,7 @@ Scripts para criação de tabelas e inserção de dados estão em `Programa/`.
 1. Instalar dependências com `pip install streamlit`.
 2. Executar scripts para criar bancos e usuários.
 3. Rodar o sistema principal com `streamlit run Programa/main_st.py`.
+4. Entrar com nome: Jose Silva, senha: josias
 
 ---
 
