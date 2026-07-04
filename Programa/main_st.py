@@ -1,7 +1,10 @@
 import streamlit as st
 from io import BytesIO
+from create_tables import inicializar_bancos
 from querys import cadastrar_prod, selecao_marca,selecao_cor,atualizar_prod,selecao,validar_login
 from dashs import grafico_tipos_qtd, grafico_menor_preco
+
+inicializar_bancos()
 
 def login():
     st.title("Tela de Login Fashion-Stock")

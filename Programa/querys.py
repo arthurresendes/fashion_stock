@@ -1,15 +1,20 @@
 import sqlite3
+import os
 import pandas as pd
 from create_tables import fechamento
 import bcrypt
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FASHION_DB = os.path.join(BASE_DIR, 'fashion.db')
+LOGIN_DB = os.path.join(BASE_DIR, 'LoginUser.db')
+
 def inicializacao():
-    conexao = sqlite3.connect('fashion.db')
+    conexao = sqlite3.connect(FASHION_DB)
     cursor = conexao.cursor()
     return conexao,cursor
 
 def inicializacao_user():
-    conexao = sqlite3.connect('LoginUser.db')
+    conexao = sqlite3.connect(LOGIN_DB)
     cursor = conexao.cursor()
     return conexao,cursor
 
