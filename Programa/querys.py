@@ -111,14 +111,4 @@ def validar_login(nome, senha_digitada):
     if resultado:
         hash_salvo = resultado[0].encode()
         return bcrypt.checkpw(senha_digitada.encode(), hash_salvo)
-
     return False
-
-def apagar():
-    conexao, cursor = inicializacao_user()
-    cursor.execute("DELETE FROM Usuario WHERE id_user == 1")
-    cursor.execute("DELETE FROM Usuario WHERE id_user == 2")
-    conexao.commit()
-    conexao.close()
-
-apagar()
