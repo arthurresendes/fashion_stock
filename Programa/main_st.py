@@ -8,6 +8,7 @@ inicializar_bancos()
 
 def login():
     st.title("Tela de Login Fashion-Stock")
+    st.write("Nome: Jose Silva - Senha: Josias")
 
     nome = st.text_input("Digite seu nome:")
     senha = st.text_input("Digite sua senha:", type="password")
